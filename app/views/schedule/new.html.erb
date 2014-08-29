@@ -1,5 +1,18 @@
+<% content_for :head do %>
+<script type="application/javascript">
+    $(document).ready(function() {
+        $("#zipcheck").keyup(function() {
+            if($("#zipcheck").val().length == 5) {
+                $("#zipcheck").css("background-color", "pink");
+            } else {
+                $("#zipcheck").css("background-color", "white");
+            }
+        });
+    });
+</script>
+<% end %>
 Welcome to the scheduler.
 First let's see if you are in our coverage zone:
 <form name="zip">
-  <input type="text" name="zipcheck" id="zipcheck" />
+  <input type="text" name="zipcheck" id="zipcheck" maxlength="5" />
 </form>
