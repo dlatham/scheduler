@@ -5,22 +5,33 @@
         // Setting up a loading indicator using Ajax Events
         $( document ).ajaxStart(function() {
             $("#statusicon").replaceWith("<span id='statusicon' class='input-group-addon'><i class='fa fa-refresh fa-fw fa-spin'></i></span>");
-            //$("icon").addClass("fa-refresh fa-spin");
+            $('#badzip').hide();
         });
 
         // Checking zipcode length and calling the ajax
         $("#zipcheck").keyup(function() {
             if ($("#zipcheck").val().length == 5) {
                 if (/(^\d{5}$)|(^\d{5}-\d{4}$)/.test($("#zipcheck").val())) {
-                    $("#validzip").addClass("has-success");
                     $.ajax({
                         url: "/ziplookup/" + $("#zipcheck").val(),
                         type: "GET",
-                        dataType: "json",
-                        success: function (coverage) {
-                            result = jQuery.parseJSON(coverage);  //broken here
-                            alert(result.service);
-                            //$("#results").append(coverage);
+                        dataType: "text", //Handling the JSON as text for the JSON parser below
+                        success: function (data) {
+                            var coverage = $.parseJSON(data);  //parse the JSON into the coverage variable
+                            //Change the form helper depending on the coverage result
+                            if (coverage.service == "full"){
+                                $("#statusicon").replaceWith("<span id='statusicon' class='input-group-addon'><i class='fa fa-check fa-fw'></i></span>");
+                                $("#validzip").addClass("has-success");
+                                $('#schedule').fadeIn();
+                            } else if (coverage.service == "limited"){
+                                $("#statusicon").replaceWith("<span id='statusicon' class='input-group-addon'><i class='fa fa-warning fa-fw'></i></span>");
+                                $("#validzip").addClass("has-warning");
+                                //add limited coverage div show here
+                            } else {
+                                $("#statusicon").replaceWith("<span id='statusicon' class='input-group-addon'><i class='fa fa-times fa-fw'></i></span>");
+                                $("#validzip").addClass("has-error");
+                                //add no coverage div show here
+                            }
                         },
                         error: function () {
                             alert("There was an error!");
@@ -28,17 +39,21 @@
 
                     });
                 } else {
-                    $("#validzip").addClass("has-error");
+                    $('#badzip').fadeIn();
                 }
             } else {
-                $("#results").empty();
                 $("#validzip").removeClass("has-error");
                 $("#validzip").removeClass("has-success");
+                $("#statusicon").replaceWith("<span id='statusicon' class='input-group-addon'><i class='fa fa-map-marker fa-fw'></i></span>");
             }
         });
     });
 </script>
 <% end %>
+<div class="alert alert-danger alert-dismissible" role="alert" style="display: none" id="badzip">
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  <strong>Invalid Zip!</strong> Please enter a valid US zip code to start scheduling.
+</div>
 Welcome to the scheduler.
 First let's see if you are in our coverage zone:
 <form name="zip">
@@ -49,5 +64,6 @@ First let's see if you are in our coverage zone:
       </div>
   </div>
 </form>
-<div id="results"></div>
-<div id="loading_indicator" style="display: none;">Loading...</div>
+
+<div id="schedule" style="display: none">Good news! Refined K-9 services your area. Let's learn a little more about your specific dog's needs so we can see how to help...</div>
+<div id="noservice" style="display: none">Unfortunately Refined K-9 does not currently service your area. We sometimes travel for special cases but the client would be responsible for any travel expenses incurred.</div>
