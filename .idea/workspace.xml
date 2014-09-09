@@ -26,8 +26,8 @@
       <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/schedule/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29083094" vertical-offset="67" max-vertical-offset="1110">
-              <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.5272206" vertical-offset="367" max-vertical-offset="1680">
+              <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
@@ -111,14 +111,14 @@
         <option value="$PROJECT_DIR$/vendor/assets/stylesheets/bootstrap.css" />
         <option value="$PROJECT_DIR$/vendor/assets/stylesheets/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/app/controllers/ziplookup_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/schedule/new.html.erb" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/views/schedule/new.html.erb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2228" />
-    <option name="y" value="-180" />
+    <option name="x" value="-2271" />
+    <option name="y" value="-86" />
     <option name="width" value="1734" />
     <option name="height" value="806" />
   </component>
@@ -336,7 +336,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2228" y="-180" width="1734" height="806" extended-state="0" />
+    <frame x="-2271" y="-86" width="1734" height="806" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -784,8 +784,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/schedule/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29083094" vertical-offset="67" max-vertical-offset="1110">
-          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.5272206" vertical-offset="367" max-vertical-offset="1680">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />

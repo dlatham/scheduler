@@ -18,6 +18,7 @@
                         dataType: "text", //Handling the JSON as text for the JSON parser below
                         success: function (data) {
                             var coverage = $.parseJSON(data);  //parse the JSON into the coverage variable
+                            $("#city").val(coverage.city);
                             //Change the form helper depending on the coverage result
                             if (coverage.service == "full"){
                                 $("#statusicon").replaceWith("<span id='statusicon' class='input-group-addon'><i class='fa fa-check fa-fw'></i></span>");
@@ -30,7 +31,7 @@
                             } else {
                                 $("#statusicon").replaceWith("<span id='statusicon' class='input-group-addon'><i class='fa fa-times fa-fw'></i></span>");
                                 $("#validzip").addClass("has-error");
-                                //add no coverage div show here
+                                $('#noservice').fadeIn();
                             }
                         },
                         error: function () {
@@ -45,6 +46,8 @@
                 $("#validzip").removeClass("has-error");
                 $("#validzip").removeClass("has-success");
                 $("#statusicon").replaceWith("<span id='statusicon' class='input-group-addon'><i class='fa fa-map-marker fa-fw'></i></span>");
+                $('#schedule').fadeOut();
+                $('#noservice').fadeOut();
             }
         });
     });
@@ -65,5 +68,40 @@ First let's see if you are in our coverage zone:
   </div>
 </form>
 
-<div id="schedule" style="display: none">Good news! Refined K-9 services your area. Let's learn a little more about your specific dog's needs so we can see how to help...</div>
+<div id="schedule" style="display: none">Good news! Refined K-9 services your area. Let's learn a little more about your specific dog's needs so we can see how to help...
+
+<form>
+  <div class="form-group" id="client">
+    <div class="input-group">
+      <span id="nameicon" class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+      <input type="text" class="form-control" name="name" id="name" maxlength="200" placeholder="Your Name" />
+    </div>
+    <div class="input-group">
+      <span id="emailicon" class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+      <input type="text" class="form-control" name="email" id="email" maxlength="200" placeholder="Email Address" />
+    </div>
+    <div class="input-group">
+      <span id="phoneicon" class="input-group-addon"><i class="fa fa-phone fa-fw"></i></span>
+      <input type="text" class="form-control" name="phone" id="phone" maxlength="200" placeholder="Phone Number" />
+    </div>
+    <div class="input-group">
+      <span id="dogicon" class="input-group-addon"><i class="fa fa-paw fa-fw"></i></span>
+      <input type="text" class="form-control" name="dogname" id="dogname" maxlength="200" placeholder="Your Dog's Name" />
+    </div>
+    <div class="input-group">
+      <span id="breedicon" class="input-group-addon"><i class="fa fa-tag fa-fw"></i></span>
+      <input type="text" class="form-control" name="breed" id="breed" maxlength="200" placeholder="Your Dog's Breed" />
+    </div>
+    <div class="input-group">
+      <span id="cityicon" class="input-group-addon"><i class="fa fa-building fa-fw"></i></span>
+      <input type="text" class="form-control" name="city" id="city" maxlength="200" value="" readonly />
+    </div>
+    <div class="input-group">
+      <span id="commenticon" class="input-group-addon"><i class="fa fa-comment fa-fw"></i></span>
+      <textarea class="form-control" id="comments" name="comments" rows="3" placeholder="Describe the problems you are experiencing..."></textarea>
+    </div>
+  </div>
+</form>
+
+</div>
 <div id="noservice" style="display: none">Unfortunately Refined K-9 does not currently service your area. We sometimes travel for special cases but the client would be responsible for any travel expenses incurred.</div>
