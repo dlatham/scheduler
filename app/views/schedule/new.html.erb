@@ -1,5 +1,7 @@
 <% content_for :head do %>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
 <script type="application/javascript">
     $(document).ready(function() {
         // Setting up a loading indicator using Ajax Events
@@ -50,6 +52,47 @@
                 $('#noservice').fadeOut();
             }
         });
+
+        //Form validation for client signup
+        $('#clientRegister').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'fa fa-check',
+                invalid: 'fa fa-times',
+                validating: 'fa fa-refresh'
+            },
+            fields: {
+                name: {
+                    message: 'Name cannot be blank.',
+                    validators: {
+                        notEmpty: {
+                            message: 'The username is required and cannot be empty'
+                        }
+                    }
+                },
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The email is required and cannot be empty'
+                        },
+                        emailAddress: {
+                            message: 'The input is not a valid email address'
+                        }
+                    }
+                },
+                phone: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The phone is required and cannot be empty'
+                        },
+                        phone: {
+                            message: 'The input is not a valid phone number',
+                            country: 'US'
+                        }
+                    }
+                },
+            }
+        });
     });
 </script>
 <% end %>
@@ -70,36 +113,51 @@ First let's see if you are in our coverage zone:
 
 <div id="schedule" style="display: none">Good news! Refined K-9 services your area. Let's learn a little more about your specific dog's needs so we can see how to help...
 
-<form>
-  <div class="form-group" id="client">
+<form id="clientRegister">
+  <div class="form-group">
     <div class="input-group">
       <span id="nameicon" class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
       <input type="text" class="form-control" name="name" id="name" maxlength="200" placeholder="Your Name" />
     </div>
+  </div>
+  <div class="form-group">
     <div class="input-group">
       <span id="emailicon" class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
       <input type="text" class="form-control" name="email" id="email" maxlength="200" placeholder="Email Address" />
     </div>
+  </div>
+  <div class="form-group">
     <div class="input-group">
       <span id="phoneicon" class="input-group-addon"><i class="fa fa-phone fa-fw"></i></span>
       <input type="text" class="form-control" name="phone" id="phone" maxlength="200" placeholder="Phone Number" />
     </div>
+  </div>
+  <div class="form-group">
     <div class="input-group">
       <span id="dogicon" class="input-group-addon"><i class="fa fa-paw fa-fw"></i></span>
       <input type="text" class="form-control" name="dogname" id="dogname" maxlength="200" placeholder="Your Dog's Name" />
     </div>
+  </div>
+  <div class="form-group">
     <div class="input-group">
       <span id="breedicon" class="input-group-addon"><i class="fa fa-tag fa-fw"></i></span>
       <input type="text" class="form-control" name="breed" id="breed" maxlength="200" placeholder="Your Dog's Breed" />
     </div>
+  </div>
+  <div class="form-group">
     <div class="input-group">
       <span id="cityicon" class="input-group-addon"><i class="fa fa-building fa-fw"></i></span>
       <input type="text" class="form-control" name="city" id="city" maxlength="200" value="" readonly />
     </div>
+  </div>
+  <div class="form-group">
     <div class="input-group">
       <span id="commenticon" class="input-group-addon"><i class="fa fa-comment fa-fw"></i></span>
       <textarea class="form-control" id="comments" name="comments" rows="3" placeholder="Describe the problems you are experiencing..."></textarea>
     </div>
+  </div>
+  <div class="form-group">
+    <button class="form-control btn btn-primary btn-lg" type="submit" id="submit">Continue...</button>
   </div>
 </form>
 
