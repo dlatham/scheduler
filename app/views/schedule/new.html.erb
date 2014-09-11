@@ -113,11 +113,17 @@ First let's see if you are in our coverage zone:
 
 <div id="schedule" style="display: none">Good news! Refined K-9 services your area. Let's learn a little more about your specific dog's needs so we can see how to help...
 
-<form id="clientRegister">
+<form id="clientRegister" action="/leads/new" method="get">
   <div class="form-group">
     <div class="input-group">
-      <span id="nameicon" class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-      <input type="text" class="form-control" name="name" id="name" maxlength="200" placeholder="Your Name" />
+      <span id="fnameicon" class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+      <input type="text" class="form-control" name="fname" id="fname" maxlength="200" placeholder="First Name" />
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <span id="lnameicon" class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+      <input type="text" class="form-control" name="lname" id="lname" maxlength="200" placeholder="Last Name" />
     </div>
   </div>
   <div class="form-group">

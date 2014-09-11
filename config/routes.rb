@@ -7,6 +7,8 @@ Scheduler::Application.routes.draw do
   root 'welcome#index'
   resources :schedule
   resources :ziplookup
+  resources :leads
+  resources :calendar
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
