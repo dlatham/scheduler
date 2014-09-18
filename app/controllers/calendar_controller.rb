@@ -16,4 +16,8 @@ class CalendarController < ApplicationController
   def create
 
   end
+
+  def openings
+    @cal = Icalendar.all
+  end
 end

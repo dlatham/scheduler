@@ -1,0 +1,12 @@
+<h1>My openings</h1>
+<%= form_tag("/openings", method: "POST") do %>
+    <%= hidden_field_tag("startdate", @startdate) %>
+  <% @events.each do |starttime, booked| %>
+  <div class="form-group">
+    <%= label_tag(starttime.to_formatted_s(:number), starttime.to_formatted_s(:short)) %>
+    <%= check_box_tag(starttime.to_formatted_s(:number), 1, booked) %>
+  </div>
+  <% end %>
+  <%= hidden_field_tag("enddate", @enddate) %>
+  <%= submit_tag("Save Openings") %>
+<% end %>

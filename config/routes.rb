@@ -9,6 +9,7 @@ Scheduler::Application.routes.draw do
   resources :ziplookup
   resources :leads
   resources :calendar
+  resources :openings
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

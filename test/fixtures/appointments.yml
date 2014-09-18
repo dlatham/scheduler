@@ -1,25 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  zip: 1
-  fname: MyString
-  lname: MyString
-  email: MyString
-  phone: MyString
-  starttime: 2014-08-28 11:53:44
-  endtime: 2014-08-28 11:53:44
-  breed: MyString
-  dogname: MyString
-  comments: MyText
+  start: 2014-09-16 16:46:59
+  end: 2014-09-16 16:46:59
+  clientid: 1
 
 two:
-  zip: 1
-  fname: MyString
-  lname: MyString
-  email: MyString
-  phone: MyString
-  starttime: 2014-08-28 11:53:44
-  endtime: 2014-08-28 11:53:44
-  breed: MyString
-  dogname: MyString
-  comments: MyText
+  start: 2014-09-16 16:46:59
+  end: 2014-09-16 16:46:59
+  clientid: 1
